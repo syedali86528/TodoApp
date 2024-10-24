@@ -1,0 +1,13 @@
+<div class="task-manager">
+    <h1>Task Manager</h1>
+    <input [(ngModel)]="newTaskTitle" placeholder="Add a new task" />
+    <button (click)="addTask()">Add Task</button>
+
+    <ul>
+        <li *ngFor="let task of tasks">
+            <input type="checkbox" [(ngModel)]="task.completed" (change)="toggleCompletion(task)" />
+            <input [(ngModel)]="task.title" (blur)="editTask(task, task.title)" [disabled]="task.completed" />
+            <button (click)="deleteTask(task.id)">Delete</button>
+        </li>
+    </ul>
+</div>

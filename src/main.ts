@@ -1,15 +1,8 @@
-import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { GreetingComponent } from './app/greeting/greeting.component';
+import { App } from './app/app.component';  // Ensure this path is correct
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  template: '<app-greeting></app-greeting>',
-  imports : [GreetingComponent]
-})
-export class App {
-  name = 'Angular';
-}
-
-bootstrapApplication(App);
+bootstrapApplication(App, {
+  providers: [FormsModule, CommonModule],
+});
